@@ -5,7 +5,6 @@ client = new dc.Client()
 client.commands = new dc.Collection()
 
 const commandFiles = fs.readdirSync("./commands")
-console.log(`Command files are ${commandFiles}.`)
 
 for (const file of commandFiles) {
     const command = require(`./commands/${file}`)

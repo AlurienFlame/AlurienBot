@@ -1,4 +1,4 @@
-const config = require("./config.json")
+require('dotenv').config()
 const fs = require("fs")
 const dc = require("discord.js")
 client = new dc.Client()
@@ -16,9 +16,9 @@ client.on("ready", () => {
 })
 
 client.on("message", msg => {
-    if (!msg.content.startsWith(config.prefix) || msg.author.bot) return
+    if (!msg.content.startsWith(process.env.PREFIX) || msg.author.bot) return
 
-    const args = msg.content.slice(config.prefix.length).split(/ +/)
+    const args = msg.content.slice(process.env.PREFIX.length).split(/ +/)
     const commandName = args.shift().toLowerCase()
     
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
@@ -29,7 +29,7 @@ client.on("message", msg => {
     }
 
     if (command.args && !args.length) {
-        msg.channel.send(`That command requires arguments.\nTry \`${config.prefix}${command.name} ${command.args}\``)
+        msg.channel.send(`That command requires arguments.\nTry \`${process.env.PREFIX}${command.name} ${command.args}\``)
         return
     }
 
@@ -42,4 +42,4 @@ client.on("message", msg => {
     }
 })
 
-client.login(config.token)
+client.login(process.env.TOKEN)

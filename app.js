@@ -6,9 +6,12 @@ client.on("ready", () => {
 })
 
 client.on("message", msg => {
+    if (msg.mentions.has(client.user)) {
+        msg.channel.send("Did someone say my name?")
+    }
     if (msg.content === "ping") {
-        msg.reply("Pong!")
+        msg.channel.send("Pong!")
     }
 })
 
-client.login("token")
+client.login("Njk0MDQwNzU4NDE1NTIzODQy.XoF2Qg.OOvoYsbooUn4xHD_kvshlPp3gGg")

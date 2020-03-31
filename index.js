@@ -14,6 +14,13 @@ for (const file of commandFiles) {
 
 client.on("ready", () => {
     console.log(`Logged in as ${client.user.tag}.`)
+
+  	client.user.setActivity("!help");
+	client.generateInvite()
+	.then(link => {
+		console.log(`Generated bot invite link: ${link}`);
+		inviteLink = link;
+	});
 })
 
 client.on("message", msg => {

@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
     name: "help",
     description: "Get a list of commands, or help about a specific one.",

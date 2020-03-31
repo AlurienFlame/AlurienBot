@@ -1,4 +1,5 @@
 require('dotenv').config()
+const server = require('./server.js')
 const fs = require("fs")
 const dc = require("discord.js")
 client = new dc.Client()
